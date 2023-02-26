@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting</title>
+    <script>
+
+        function getRandom(n){
+            return Math.round(Math.random() * (n + 1) - 0.5);
+        }
+        
+        function getArr(count){
+            let tempArr = [];
+            for(let i = 0; i < count; i++){
+                tempArr[i] = getRandom(100);
+            }
+            return tempArr;
+        }
+
+        function sortElem(arrCount){
+            var array_2 = getArr(arrCount);
+            document.write(array_2 + " <<<--- Исходные данные <br>");
+
+            var current = 0;
+            var arrSize = array_2.length;
+
+            for(current = 0; current < arrSize - 1; current++){
+                var position = current;
+
+                for(var i = current + 1; i < arrSize; i++){
+                    if(array_2[i] > array_2[position]){
+                        position = i;
+                    }
+                }
+                var temp = array_2[current];
+                array_2[current] = array_2[position];
+                array_2[position] = temp;
+                document.write(array_2 + `<<<--- ${current + 1} повтор <br>`);
+            }
+        }
+        sortElem(7);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
